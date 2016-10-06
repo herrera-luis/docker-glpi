@@ -17,6 +17,7 @@ RUN a2enmod rewrite && service apache2 stop
 WORKDIR /var/www/html
 COPY start.sh /opt/
 COPY glpi-9.1.tar.gz /tmp/
+COPY glpi-ocsinventoryng-1.2.3.tar.gz /tmp/
 RUN chmod +x /opt/start.sh
 RUN usermod -u 1000 www-data
 CMD /opt/start.sh

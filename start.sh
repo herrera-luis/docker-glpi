@@ -14,6 +14,7 @@ else
   echo '--------> Install GLPI'
   tar -C $APACHE_DIR -xzf /tmp/glpi-9.1.tar.gz
   chown -R www-data $GLPI_DIR
+  tar -C $GLPI_DIR/plugins -xzf /tmp/glpi-ocsinventoryng-1.2.3.tar.gz
  
   VHOST=/etc/apache2/sites-enabled/000-default.conf
 
