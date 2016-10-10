@@ -1,4 +1,7 @@
 FROM ubuntu:14.04
+
+MAINTAINER Luis Herrera <luis.herrera.ec@gmail.com>
+
 RUN apt-get update
 RUN apt-get install -y apache2
 RUN apt-get install -y \
@@ -11,7 +14,7 @@ RUN apt-get install -y \
   php5-curl \
   php5-gd \
   nano \
-  php5-imap \
+  php5-imap 
 RUN php5enmod imap  
 RUN a2enmod rewrite && service apache2 stop
 WORKDIR /var/www/html
