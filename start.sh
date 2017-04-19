@@ -12,9 +12,11 @@ if [ "$(ls -A $GLPI_DIR)" ]; then
   echo "GLPI is already installed at ${GLPI_DIR}"
 else
   echo '--------> Install GLPI'
-  tar -C $APACHE_DIR -xzf /tmp/glpi-9.1.tar.gz
+  tar -C $APACHE_DIR -xzf /opt/glpi-9.1.2.tar.gz
   chown -R www-data $GLPI_DIR
-  tar -C $GLPI_DIR/plugins -xzf /tmp/glpi-ocsinventoryng-1.2.3.tar.gz
+  tar -C $GLPI_DIR/plugins -xzf /opt/glpi-ocsinventoryng-1.3.3.tar.gz
+  cp /opt/composer.phar $GLPI_DIR
+  php $GLPI_DIR/composer.phar install -d $GLPI_DIR --no-dev
  
   VHOST=/etc/apache2/sites-enabled/000-default.conf
 

@@ -5,6 +5,7 @@ MAINTAINER Luis Herrera <luis.herrera.ec@gmail.com>
 RUN apt-get update
 RUN apt-get install -y apache2
 RUN apt-get install -y \
+  tar \
   wget \
   php5 \
   php5-mysql \
@@ -19,9 +20,10 @@ RUN php5enmod imap
 RUN a2enmod rewrite && service apache2 stop
 WORKDIR /var/www/html
 COPY start.sh /opt/
-COPY glpi-9.1.tar.gz /tmp/
-COPY glpi-ocsinventoryng-1.2.3.tar.gz /tmp/
-RUN chmod +x /opt/start.sh
+COPY composer.phar /opt/
+COPY glpi-9.1.2.tar.gz /opt/
+COPY glpi-ocsinventoryng-1.3.3.tar.gz /opt/
 RUN usermod -u 1000 www-data
-CMD /opt/start.sh
+RUN chmod +x /opt/start.sh
+CMD ["/opt/start.sh"]
 EXPOSE 80
