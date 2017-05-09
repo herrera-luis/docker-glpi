@@ -25,8 +25,8 @@ COPY glpi-9.1.2.tar.gz /opt/
 COPY glpi-ocsinventoryng-1.3.3.tar.gz /opt/
 COPY 000-default.conf /etc/apache2/sites-enabled/
 RUN usermod -u 1000 www-data
-RUN chmod +x /opt/start.sh
-RUN chmod 777 /var/www/html
+RUN chmod +x /opt/run.sh
+RUN chmod +x /var/www/html
 RUN chown -R www-data:www-data /var/www
 RUN chown -R www-data:www-data /var/log/apache2
 RUN chown -R www-data:www-data /etc/apache2/sites-enabled/
