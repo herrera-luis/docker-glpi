@@ -19,7 +19,6 @@ RUN apt-get install -y \
 RUN php5enmod imap  
 
 WORKDIR /var/www/html
-COPY start.sh /opt/
 COPY run.sh /opt/
 COPY composer.phar /opt/
 COPY glpi-9.1.2.tar.gz /opt/
