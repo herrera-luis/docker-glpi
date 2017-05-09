@@ -1,9 +1,9 @@
-# docker-glpi
+# docker-glpi with tini
 
-Para crear la imagen con Dockerfile
+Create Docker Image
 
 		docker build -t nombrerepositorio/imagen . 
 
-Para crear el contenedor
+RUN Container
 
-		docker run -d -p 268:80 --name nombre_contenedor --link contenedor_mysql --restart=always nombrerepositorio/imagen
+		docker run -d -p 268:80 --name nombre_contenedor --link contenedor_mysql --restart=always nombrerepositorio/imagen && docker exec -t -u root test_glpi /etc/init.d/apache2 restart
